@@ -189,6 +189,45 @@ Value stop(const Array& params, bool fHelp)
     return "Kimdotcoin server stopping";
 }
 
+Value GetNetworkHashPS(int lookup) {
+    if (pindexBest == NULL)
+        return 0;
+
+
+    // If lookup is -1, then use blocks since last difficulty change.
+    if (lookup <= 0)
+        lookup = pindexBest->nHeight % 2016 + 1;
+
+
+    // If lookup is larger than chain, then set it to chain length.
+    if (lookup > pindexBest->nHeight)
+        lookup = pindexBest->nHeight;
+
+
+    CBlockIndex* pindexPrev = pindexBest;
+    for (int i = 0; i < lookup; i++)
+        pindexPrev = pindexPrev->pprev;
+
+
+    double timeDiff = pindexBest->GetBlockTime() - pindexPrev->GetBlockTime();
+    double timePerBlock = timeDiff / lookup;
+
+
+    return (boost::int64_t)(((double)GetDifficulty() * pow(2.0, 32)) / timePerBlock);
+}
+
+
+Value getnetworkhashps(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() > 1)
+        throw runtime_error(
+            "getnetworkhashps [blocks]\n"
+            "Returns the estimated network hashes per second based on the last 120 blocks.\n"
+            "Pass in [blocks] to override # of blocks, -1 specifies since last difficulty change.");
+
+
+    return GetNetworkHashPS(params.size() > 0 ? params[0].get_int() : 120);
+}
 
 
 //
