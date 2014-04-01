@@ -1310,7 +1310,7 @@ Address: %4
     </message>
     <message>
         <location line="+10"/>
-        <source>123.456 KDC</source>
+        <source>123.456 DOT</source>
         <translation type="unfinished"/>
     </message>
     <message>

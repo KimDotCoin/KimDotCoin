@@ -44,7 +44,7 @@ void QRCodeDialog::setModel(OptionsModel *model)
     if (model)
         connect(model, SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
 
-    // update the display unit, to not use the default ("KDC")
+    // update the display unit, to not use the default ("DOT")
     updateDisplayUnit();
 }
 
@@ -92,8 +92,8 @@ QString QRCodeDialog::getURI()
     {
         if (ui->lnReqAmount->validate())
         {
-            // even if we allow a non KDC unit input in lnReqAmount, we generate the URI with KDC as unit (as defined in BIP21)
-            ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::KDC, ui->lnReqAmount->value()));
+            // even if we allow a non DOT unit input in lnReqAmount, we generate the URI with DOT as unit (as defined in BIP21)
+            ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::DOT, ui->lnReqAmount->value()));
             paramCount++;
         }
         else

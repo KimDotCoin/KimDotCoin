@@ -1,9 +1,10 @@
 Kimdotcoin integration/staging tree
 ================================
 
-http://www.coingen.io
+http://kimdotcoin.co.nz
 
 Copyright (c) 2009-2013 Bitcoin Developers
+Copyright (c) 2014-2014 KimDotCoin Developers
 
 What is Kimdotcoin?
 ----------------
@@ -15,7 +16,7 @@ out collectively by the network. Kimdotcoin is also the name of the open source
 software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Kimdotcoin client software, see http://www.coingen.io.
+the Kimdotcoin client software, see http://kimdotcoin.co.nz
 
 License
 -------

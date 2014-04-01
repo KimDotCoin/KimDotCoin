@@ -19,9 +19,9 @@ public:
      */
     enum Unit
     {
-        KDC,
-        mKDC,
-        uKDC
+        DOT,
+        mDOT,
+        uDOT
     };
 
     //! @name Static API

@@ -1317,8 +1317,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+10"/>
-        <source>123.456 KDC</source>
-        <translation>123.456 KDC</translation>
+        <source>123.456 DOT</source>
+        <translation>123.456 DOT</translation>
     </message>
     <message>
         <location line="+31"/>

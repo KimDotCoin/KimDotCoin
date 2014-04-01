@@ -11,9 +11,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(KDC);
-    unitlist.append(mKDC);
-    unitlist.append(uKDC);
+    unitlist.append(DOT);
+    unitlist.append(mDOT);
+    unitlist.append(uDOT);
     return unitlist;
 }
 
@@ -21,9 +21,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case KDC:
-    case mKDC:
-    case uKDC:
+    case DOT:
+    case mDOT:
+    case uDOT:
         return true;
     default:
         return false;
@@ -34,9 +34,9 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case KDC: return QString("KDC");
-    case mKDC: return QString("mKDC");
-    case uKDC: return QString::fromUtf8("μKDC");
+    case DOT: return QString("DOT");
+    case mDOT: return QString("mDOT");
+    case uDOT: return QString::fromUtf8("μDOT");
     default: return QString("???");
     }
 }
@@ -45,9 +45,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case KDC: return QString("Kimdotcoins");
-    case mKDC: return QString("Milli-Kimdotcoins (1 / 1,000)");
-    case uKDC: return QString("Micro-Kimdotcoins (1 / 1,000,000)");
+    case DOT: return QString("Kimdotcoins");
+    case mDOT: return QString("Milli-Kimdotcoins (1 / 1,000)");
+    case uDOT: return QString("Micro-Kimdotcoins (1 / 1,000,000)");
     default: return QString("???");
     }
 }
@@ -56,9 +56,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case KDC:  return 100000000;
-    case mKDC: return 100000;
-    case uKDC: return 100;
+    case DOT:  return 100000000;
+    case mDOT: return 100000;
+    case uDOT: return 100;
     default:   return 100000000;
     }
 }
@@ -67,9 +67,9 @@ int BitcoinUnits::amountDigits(int unit)
 {
     switch(unit)
     {
-    case KDC: return 8; // 21,000,000 (# digits, without commas)
-    case mKDC: return 11; // 21,000,000,000
-    case uKDC: return 14; // 21,000,000,000,000
+    case DOT: return 8; // 21,000,000 (# digits, without commas)
+    case mDOT: return 11; // 21,000,000,000
+    case uDOT: return 14; // 21,000,000,000,000
     default: return 0;
     }
 }
@@ -78,9 +78,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case KDC: return 8;
-    case mKDC: return 5;
-    case uKDC: return 2;
+    case DOT: return 8;
+    case mDOT: return 5;
+    case uDOT: return 2;
     default: return 0;
     }
 }
