@@ -1175,11 +1175,11 @@ unsigned int static GetNextWorkRequiredOld(const CBlockIndex* pindexLast, const 
 }
 
 
-unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBlock *pblock, uint64 TargetBlocksSpacingSeconds, uint64 PastBlocksMin, uint64 PastBlocksMax) {
+unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader *pblock, uint64 TargetBlocksSpacingSeconds, uint64 PastBlocksMin, uint64 PastBlocksMax) {
  	/* current difficulty formula - kimoto gravity well */
  	const CBlockIndex  *BlockLastSolved				= pindexLast;
  	const CBlockIndex  *BlockReading				= pindexLast;
- 	const CBlock       *BlockCreating				= pblock;
+ 	const CBlockHeader       *BlockCreating				= pblock;
  						BlockCreating				= BlockCreating;
  	uint64				PastBlocksMass				= 0;
  	int64				PastRateActualSeconds		= 0;
@@ -1235,7 +1235,7 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
  	return bnNew.GetCompact();
  }
  
-unsigned int static GetNextWorkRequiredNew(const CBlockIndex* pindexLast, const CBlock *pblock)
+unsigned int static GetNextWorkRequiredNew(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
 {
 	 static const int64	BlocksTargetSpacing			= 1.5 * 60; // 1.5 minutes
 	 unsigned int		TimeDaySeconds				= 60 * 60 * 24;
@@ -1246,7 +1246,7 @@ unsigned int static GetNextWorkRequiredNew(const CBlockIndex* pindexLast, const 
 	 return KimotoGravityWell(pindexLast, pblock, BlocksTargetSpacing, PastBlocksMin, PastBlocksMax);
 }
 
- unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlock *pblock)
+ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
  {
     int DiffMode = 1;
     
